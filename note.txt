@@ -1,0 +1,156 @@
+1.kernel内核
+  管理计算机
+2.shell
+  链接用户和kernel的桥梁
+3.文件系统
+  /根目录
+    ...
+4.
+  1.clear
+  2.pwd
+  3.ls
+    -a
+    -A
+    -l
+    -R
+    -d
+  4.id   
+    指出uid gid groups
+  5.cd
+    回家
+      cd ~
+      cd
+      cd /home/username
+    根目录
+      cd /
+    上一级目录
+      cd ..
+    上两级
+      cd ../..
+    echo $SHELL
+5.用户管理 
+  cat /etc/passwd 
+    sudo adduser caoyu
+    sudo useradd -s /bin/bash -m -g 1000 -p larry larry
+      -s
+      -m
+      -g
+      -p
+    sudo usermod -g 1000
+    sudo userdel -r larry
+6.组管理
+  cat /etc/group
+    sudo groupadd -g 10000 web1801
+    sudo groupmod -g 10001 web1801
+    sudo groupdel web1801
+    -----------------------------------------
+1.touch 
+  touch a
+  touch a b c d
+  touch day01/a
+  touch ./day01/a
+2.mkdir
+  mkdir dir1
+  mkdir dir1 dir2
+  mkdir dir1/dir2    保证dir1存在的
+  mkdir -p dir1/dir2
+3.cp
+  cp a dir  拷贝文件到目录
+  cp a b    拷贝文件到文件(覆盖)，如果b不在的话，创建b文件，并把内容复制进去
+  cp -r dir1 dir2拷贝文件夹
+  cp -i a b   如果文件b存在，询问，如果不在，直接拷贝
+  cp -ir dir1 dir2如果目录dir2存在，询问，如果不在，直接拷贝
+4.mv 
+  mv file1 file2  文件重命名
+  mv file1 dir1   移动文件到目录
+  mv file1 file2 dir1   多文件移动文件到目录
+  mv dir1 dir2    将目录移动到目录里面，dir2存在
+  mv dir1 dir2    文件夹重命名dir1，dir2不存在
+5.rm
+  rm file   移除一个文件
+  rm -r dir  移除目录
+  rmdir dir1   移除一个空目录
+  -i   询问
+6.压缩
+  (1)gzip gunzip
+    gzip file 压缩单个文件，会把源文件代替   
+      -k不替代源文件
+      产生.gz后缀名的压缩包
+    gunzip   *.gz
+  (2)bzip2 bunzip2
+    bzip2 file压缩单个文件，会把源文件代替
+      -k不代替源文件
+      会产生.bz2后缀名的压缩吧
+    bunzip2 *.bz2
+  (3)zip  unzip
+    zip all.zip flies  压缩多个文件，而且不会代替源文件
+    zip all.zip *.txt
+    zip all.zip a.txt b.txt
+    unzip all.zip
+7.打包   拆包
+  1.打包及压缩
+    1.tar cvf all.tar *.txt
+    2.gzip all.tar
+
+      =>
+        tar cvfz all.tar.gz *.txt  =>all.tar.gz
+  2.打包及压缩
+    1.tar cvf all.tar *.txt
+    2.bzip2 all.tar
+
+       =>
+        tar cvfj all.tar.bz2 *.txt  =>all.tar.bz2
+  1.拆包及解压
+    1.gunzip all.tar.gz=>all.tar
+    2.tar xvf all.tar
+
+      =>
+        tar xvfz all.tar.gz
+
+  2.拆包及解压
+    1.bunzip2 all.tar.bz2  => all.tar
+    2.tar xvf all.tar
+
+      =>
+        tar xvfj all.tar.bz2
+
+优化使用：
+  压缩打包：
+  tar cvfz all.tar.gz *.txt  =>all.tar.gz
+  tar cvfj all.tar.bz2 *.txt  =>all.tar.bz2
+  解压拆当：
+  tar xvfz all.tar.gz
+  tar xvfj all.tar.bz2
+8.ln
+  ln a.txt a.h
+  ln -s a.txt a.h
+9.chomd
+  u         g             o 
+  拥有者    同组成员      其他成员
+  r(read)   w(write)     x(执行)
+  4         2            1             7(最高权限)
+    读写执行
+  0  ---
+  1  --x
+  2  -w-
+  3  -wx
+  4  r--
+  5  r-x
+  6  rw-
+  7  rwx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

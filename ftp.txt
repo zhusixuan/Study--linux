@@ -1,0 +1,24 @@
+1.安装VSFTPD:sudo apt-get install vsftpd
+2.启动VSFTPD服务:sudo service vsftpd start
+3.新建目录/home/uftp作为用户主目录:sudo mkdir /home/uftp
+4.新建用户uftp，制定用户主目录和所用shell，并设置密码:sudo useradd -d /home/uftp -s /bin/bash uftp,并修改该用户密码，sudo passwd uftp
+5.然后将目录/home/uftp的所属者和所属组都改为uftp:sudo chown uftp:uftp /home/uftp
+6.新建文件/etc/vsftpd.user_list，用于存放允许访问ftp的用户:sudo vim /etc/vsftpd.user_list
+7.在其中添加用户uftp，并且保存退出
+8.VSFTPD配置文件为:  sudo vim /etc/vsftpd.conf
+	userlist_file=/etc/vsftpd.user_list
+	userlist_enable=YES
+	userlist_deny=NO
+	#允许登录的用户
+	seccomp_sandbox=NO
+	#默认ftp下载目录
+	local_root=/home/uftp/
+	local_enable=YES
+	#设置文件上传
+	write_enable=YES
+	#使用utf8
+	utf8_filesystem=YES
+9.重启
+	sudo service vsftpd restart
+
+

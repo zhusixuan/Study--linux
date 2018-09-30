@@ -1,0 +1,41 @@
+1.安装telnet:sudo apt-get install telnetd
+2.启动服务：sudo /etc/init.d/openbsd-inetd restart
+3.查看：sudo netstat -a | grep telnet
+
+nodejs安装
+~/.bashrc 环境变量：
+	export NODE_HOME=/opt/node-v8.11.3-linux-x64
+	export PATH=$PATH:$NODE_HOME/bin
+
+vsftpd(已经安装成功)
+			ftp服务器端
+			sudo apt-get install vsftpd
+			第二步：新建目录/home/uftp作为用户主目录
+			sudo mkdir /home/uftp
+			第三步：新建用户uftp，制定用户主目录和所用shell，并设置密码
+			sudo useradd -d /home/uftp -s /bin/bash uftp
+			然后将目录/home/uftp的所属者和所属组都改为uftp：
+			sudo chown uftp:uftp /home/uftp
+			第四步：新建文件/etc/vsftpd.user_list，用于存放允许访问ftp的用户：
+			sudo vim /etc/vsftpd.user_list 在其中添加用户uftp，并且保存退出
+			第五步：编辑VSFTPD配置文件 　 
+			VSFTPD配置文件为/etc/vsftpd.conf，执行命令：
+			sudo vim /etc/vsftpd.conf
+			　　做如下修改： 
+			　　打开注释 write_enable=YES 
+			　　添加信息 userlist_file=/etc/vsftpd.user_list 
+			　　添加信息 userlist_enable=YES 
+			　　添加信息 userlist_deny=NO 
+			　　修改完成后保存退出。
+
+			第六步：测试 
+			　　现在在Windows下打开cmd窗口，执行命令：
+			ftp [你的linux机器的ip地址]
+			　　Linux下查看ip地址的命令为：
+			退出：quit
+			
+		卸载
+		sudo userdel uftp
+		sudo apt-get purge vsftpd
+
+

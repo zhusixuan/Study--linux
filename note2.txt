@@ -1,0 +1,89 @@
+1.touch
+2.mkdir
+  mkdir -p dir/dir1
+3.cp
+4.mv
+  mv file1 file2 重命名
+  mv dir1 dir2
+    目录dir2存在，移动
+    目录dir2不存在，重命名
+  -i
+  -r
+5.rm
+  rm file 
+  rm -r dir
+  rmdir 移除空文件夹
+6.压缩
+  gzip   gz    压缩单文件 
+  bzip2  bz2   压缩单文件 
+  zip    zip   压缩多文件
+7.tar
+    cvf    all.tar
+    xvf    拆包后的文件
+
+    vcfz   all.tar.gz
+    cvfj   all.tar.bz2
+
+    xvfz   拆包解压缩后面的文件
+    xvfj   拆包解压缩后面的文件
+8.chmod
+  拥有者  u
+  同组    g
+  其他    o
+  所有    a
+
+  rwx   读写执行
+  421 chomod  777 a.txt
+9.软硬连接
+  ln
+  软连接：快捷方式
+  硬链接：复制文件或者应用程序
+-------------------------------------
+1.查看文件内容
+  cat   全部文件内容
+  more  可以分部分查看
+  less  可以部分查看  查找文件中的内容
+  tail  可以查看文件尾部几行
+  head  可以查看文件前n行
+  tac   从倒数第一行开始看
+  nl    加行号
+2.日期命令
+  cal
+  date
+  time
+3.
+  *
+  ?
+  []
+  ;
+  cd test;ls -a
+4.
+  vim编辑器
+    命令行模式(esc)
+    插入模式(i,a,o,I,A,O,cc)
+    底行模式(:,/,?)
+5.find
+	find ~ -name a.txt
+	find /etc -name perl
+	find ~ -mtime 10
+	find ~ -mtime -10
+	find /etc -user 0
+	find ~ -type d -size -400
+	find ~ -perm 644
+6.grep
+	ls -al | grep -i "a.txt"
+	ls -al | grep -i -v "a.txt"
+	ls -al | grep -i "a.txt"
+
+7.wc:
+	cat /etc/passwd | grep root | wc -l
+	cat /etc/passwd | grep root | wc -w
+	cat /etc/passwd | grep root | wc -c
+8.挂载 
+	df -h  查看系统的分区情况
+    sudo mount 你的设备 你的文件夹
+	sudo umount 你的文件夹
+
+
+
+    

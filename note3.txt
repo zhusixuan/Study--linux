@@ -1,0 +1,63 @@
+1.vim
+  命令行模式
+    删除
+      dd
+      dw
+      x
+    修改
+      r
+      cw
+      cc
+      C
+  编辑模式
+    iao   IAO
+  底行模式
+    ESC
+2.查看
+  cat
+  more
+  less
+  tail
+  head
+3.find(查找目录下的文件)
+  -name 
+  -mtime
+  -perm
+  .. 
+4.grep(通过内容)
+  grep ~ ooo 
+5.|
+  ls -al | grep root  
+6.wc
+  l
+  w
+  c
+7.挂载
+--------------------------------
+1.linux下如何安装软件
+  1.在线安装
+    安装：apt-get install 
+    安装之前先更新源
+      apt-get update
+    apt
+    卸载：apt-get purge
+          apt-get remove
+  2.离线安装  
+    安装包安装
+2.apache2安装
+  apt-get update
+  apt-get install apache2
+  apt-get purge apache2
+3.ftp
+  1.文件传输协议
+  2.安装见笔记
+4.ssh
+  1.安全的远程连接协议
+5.telnet
+  1.不安全的远程连接协议
+  apt-get install telnetd
+
+  git 
+  svn
+
+
